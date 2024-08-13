@@ -1,7 +1,7 @@
 
 # Gupy Job Search Bot V0.1.0(BETA)
 
-Este projeto consiste em um bot que realiza buscas por vagas de emprego no Gupy utilizando palavras-chave específicas como "Junior", "Python" e "Remoto". Os resultados são enviados para um canal do Discord. A pesquisa pode ser executada manualmente via uma rota HTTP ou automaticamente, definida pelo cron diariamente às 9h.
+Este projeto consiste em um bot que realiza buscas por vagas de emprego no Gupy utilizando palavras-chave específicas como "Junior", "Python" e "Remoto". Os resultados são enviados para um canal do Discord. A pesquisa pode ser executada manualmente via uma rota HTTP ou automaticamente (necessário ajustar o .env), definida pelo cron diariamente às 9h.
 
 ## Requisitos
 

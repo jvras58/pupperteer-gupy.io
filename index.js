@@ -46,7 +46,7 @@ app.get('/pesquisar', async (req, res) => {
 cron.schedule('0 9 * * *', async () => {
     console.log('Executando pesquisa de vagas agendada');
     try {
-        const results = await searchVaga({ termoDeBusca: 'python' });
+        const results = await searchVaga({ termoDeBusca: process.env.SEARCH });
 
         // Verifique se resultados é um array e possui itens
         if (Array.isArray(results) && results.length > 0) {
