@@ -14,8 +14,8 @@ Este projeto consiste em um bot que realiza buscas por vagas de emprego no Gupy 
 1. Clone o repositório:
 
     ```bash
-    git clone https://github.com/seu-usuario/gupy-job-search-bot.git
-    cd gupy-job-search-bot
+    git clone https://github.com/seu-usuario/pupperteer-gupy.io.git
+    cd pupperteer-gupy.io
     ```
 
 2. Instale as dependências na raiz do projeto:
