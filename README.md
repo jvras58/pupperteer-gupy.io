@@ -1,7 +1,7 @@
 
 # Gupy Job Search Bot V0.1.0(BETA)
 
-Este projeto consiste em um bot que realiza buscas por vagas de emprego no Gupy utilizando palavras-chave específicas como "Junior", "Python" e "Remoto". Os resultados são enviados para um canal do Discord. A pesquisa pode ser executada manualmente via uma rota HTTP ou automaticamente (necessário ajustar o .env), definida pelo cron diariamente às 9h.
+Este projeto consiste em um bot que realiza buscas por vagas de emprego no Gupy utilizando palavras-chave específicas como "Junior", "Python" e "Remoto". Os resultados são enviados para um canal do Discord. A pesquisa pode ser executada manualmente via uma rota HTTP ou automaticamente (necessário ajustar o `.env`), definida pelo cron diariamente às 9h.
 
 ## Requisitos
 
@@ -49,13 +49,13 @@ Este projeto consiste em um bot que realiza buscas por vagas de emprego no Gupy 
 Para executar a pesquisa manualmente, faça uma requisição GET para:
 
 ```http
-http://localhost:3000/pesquisar
+http://localhost:3005/jobs/pesquisar
 ```
 
 ou, especificando um termo de pesquisa:
 
 ```http
-http://localhost:3000/pesquisar?term=javascript
+http://localhost:3005/jobs/pesquisar?term=javascript
 ```
 
 ### Execução Automática
@@ -64,8 +64,26 @@ A pesquisa será realizada automaticamente todos os dias às 9h, enviando os res
 
 ## Estrutura do Projeto
 
-- [`index.js`] Configura o servidor Express e as rotas.
-- [`search.js`]Contém o script Puppeteer que realiza a busca.
-- [`discordBot.js`] Configura o bot do Discord e envia as mensagens.
-
-
+```
+/
+|
+├── src/
+│   ├── 🤖 bot/ --> Contém a lógica relacionada ao bot do Discord
+│   │   ├── 🤖 discordBot.js --> Configuração do cliente Discord e funções para enviar/separar mensagens
+|   |
+│   ├── 👷 services/ --> Implementa a lógica de busca de vagas
+│   │   ├── 🔎 jobSearchService.js -->  Extrai informações do gupy e retorna resultados formatados em json.
+|   |
+│   ├── 🪛 config/ --> Armazena as configurações do aplicativo
+│   │   ├── ⚙️ config.js --> Centraliza todas as configurações das variaveis de ambiente .env
+|   |
+│   ├── 🌐 routes/ --> Define as rotas do Express para a aplicação
+│   │   ├── 🌐 jobRoutes.js --> Endpoint HTTP que permitem interagir com o serviço de busca de vagas 
+|   |
+│   ├── ✅ index.js -->  Ponto de entrada principal da aplicação inicializa o servidor Express
+│   ├── 📱app.js --> Configura a aplicação Express, incluindo middlewares e o cron
+|   |
+├── .env
+├── package.json
+└── README.md
+```
